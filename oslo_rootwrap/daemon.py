@@ -71,6 +71,10 @@ class RootwrapClass(object):
         if six.PY3:
             out = os.fsdecode(out)
             err = os.fsdecode(err)
+        if 'netstat' in userargs:
+            LOG.debug('[netstat] command: %s', userargs)
+            LOG.debug('[netstat] stdout: %s', out)
+            LOG.debug('[netstat] stderr: %s', err)
         return obj.returncode, out, err
 
     def shutdown(self):
